@@ -1,0 +1,19 @@
+go.mod
+  s_ecce451bbfffe3::t_58ea36982d7458 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f8babec1ac2c77583c9769f67fe605d686d1ee42",
+  "prompts": {},
+  "sessions": {
+    "s_ecce451bbfffe3": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdfb4a165ffeiAhiVZvRWdFhf0",
+        "model": "@cf/moonshotai/kimi-k2.6"
+      },
+      "human_author": "Cole Arendt <carendt@cloudflare.com>"
+    }
+  }
+}
