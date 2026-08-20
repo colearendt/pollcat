@@ -1,4 +1,4 @@
-module github.com/colearendt/cli-conn
+module github.com/colearendt/pollcat
 
 go 1.25.0
 

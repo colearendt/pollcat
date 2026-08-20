@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/colearendt/cli-conn/internal/model"
-	"github.com/colearendt/cli-conn/internal/report"
+	"github.com/colearendt/pollcat/internal/model"
+	"github.com/colearendt/pollcat/internal/report"
 )
 
 var (

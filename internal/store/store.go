@@ -3,7 +3,7 @@ package store
 import (
 	"sync"
 
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 )
 
 // Store is a thread-safe in-memory result store.

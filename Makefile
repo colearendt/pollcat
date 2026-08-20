@@ -3,7 +3,7 @@
 all: fmt lint test build
 
 build:
-	go build -o bin/cli-conn .
+	go build -o bin/pollcat .
 
 test:
 	go test -race -coverprofile=coverage.out ./...

@@ -9,7 +9,7 @@ import (
 
 	"golang.org/x/net/icmp"
 	"golang.org/x/net/ipv4"
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 )
 
 // Dialer abstracts net.Dial for testability.
@@ -177,7 +177,7 @@ func (p *DefaultPinger) Ping(ctx context.Context, address string) (time.Duration
 		Body: &icmp.Echo{
 			ID:   os.Getpid() & 0xffff,
 			Seq:  1,
-			Data: []byte("cli-conn"),
+			Data: []byte("pollcat"),
 		},
 	}
 	data, err := msg.Marshal(nil)

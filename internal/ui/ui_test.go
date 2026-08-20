@@ -6,7 +6,7 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/stretchr/testify/assert"
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 )
 
 func TestModel_Init(t *testing.T) {
@@ -48,6 +48,6 @@ func TestModel_View(t *testing.T) {
 	ch := make(chan model.Result)
 	m := New(ch)
 	view := m.View()
-	assert.Contains(t, view, "cli-conn")
+	assert.Contains(t, view, "pollcat")
 	assert.Contains(t, view, "Waiting for first poll")
 }

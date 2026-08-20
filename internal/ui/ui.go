@@ -7,7 +7,7 @@ import (
 
 	"github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 )
 
 var (
@@ -70,7 +70,7 @@ func (m Model) View() string {
 	}
 
 	var b strings.Builder
-	b.WriteString(titleStyle.Render("cli-conn") + "\n")
+	b.WriteString(titleStyle.Render("pollcat") + "\n")
 	b.WriteString(clockStyle.Render(m.clock.Format("15:04:05")) + "\n\n")
 
 	if len(m.lastByTarget) == 0 {

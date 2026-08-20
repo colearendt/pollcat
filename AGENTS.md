@@ -1,8 +1,8 @@
-# cli-conn Agent Instructions
+# pollcat Agent Instructions
 
 ## Project Overview
 
-`cli-conn` is a lightweight Go CLI for polling network connectivity (TCP) and DNS resolution. It runs multiple concurrent pollers, displays a real-time TUI with a system clock, and can generate CLI-friendly reports and CSV exports.
+`pollcat` is a lightweight Go CLI for polling network connectivity (TCP) and DNS resolution. It runs multiple concurrent pollers, displays a real-time TUI with a system clock, and can generate CLI-friendly reports and CSV exports.
 
 ## Architecture
 

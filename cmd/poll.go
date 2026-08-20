@@ -11,10 +11,10 @@ import (
 	"github.com/charmbracelet/bubbletea"
 	"github.com/mattn/go-isatty"
 	"github.com/spf13/cobra"
-	"github.com/colearendt/cli-conn/internal/model"
-	"github.com/colearendt/cli-conn/internal/poller"
-	"github.com/colearendt/cli-conn/internal/store"
-	"github.com/colearendt/cli-conn/internal/ui"
+	"github.com/colearendt/pollcat/internal/model"
+	"github.com/colearendt/pollcat/internal/poller"
+	"github.com/colearendt/pollcat/internal/store"
+	"github.com/colearendt/pollcat/internal/ui"
 )
 
 var (

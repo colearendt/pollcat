@@ -8,9 +8,9 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "cli-conn",
+	Use:   "pollcat",
 	Short: "A lightweight CLI for polling network connectivity and DNS resolution.",
-	Long: `cli-conn runs multiple concurrent pollers (TCP connect, DNS lookup)
+	Long: `pollcat runs multiple concurrent pollers (TCP connect, DNS lookup)
 and displays a real-time TUI with a system clock. After polling, you can
 generate CLI-friendly reports or CSV exports.`,
 }

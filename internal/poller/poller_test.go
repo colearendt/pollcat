@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 )
 
 type fakeDialer struct {

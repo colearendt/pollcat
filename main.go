@@ -1,6 +1,6 @@
 package main
 
-import "github.com/colearendt/cli-conn/cmd"
+import "github.com/colearendt/pollcat/cmd"
 
 var (
 	version = "dev"

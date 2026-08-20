@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 	"github.com/stretchr/testify/assert"
 )
 

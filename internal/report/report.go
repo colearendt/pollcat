@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/colearendt/cli-conn/internal/model"
+	"github.com/colearendt/pollcat/internal/model"
 )
 
 // Format defines the report output format.
