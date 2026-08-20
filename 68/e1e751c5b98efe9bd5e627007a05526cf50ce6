@@ -1,0 +1,25 @@
+cmd/poll.go
+  s_866f441a61ade0::t_ff35335b3185f6 11,14,180,183-185
+internal/poller/poller_test.go
+  s_866f441a61ade0::t_8b78ee0bdb45c4 11,26-32
+internal/report/report_test.go
+  s_866f441a61ade0::t_46aba0dca089d8 9
+internal/ui/ui.go
+  s_866f441a61ade0::t_819d1f090ea0dd 8,10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "68e1e751c5b98efe9bd5e627007a05526cf50ce6",
+  "prompts": {},
+  "sessions": {
+    "s_866f441a61ade0": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_fdf6e0384ffefYh2EAdBPKxEQo",
+        "model": "@cf/moonshotai/kimi-k2.6"
+      },
+      "human_author": "Cole Arendt <carendt@cloudflare.com>"
+    }
+  }
+}
