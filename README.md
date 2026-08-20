@@ -2,7 +2,6 @@
 
 [![CI](https://github.com/colearendt/pollcat/actions/workflows/ci.yml/badge.svg)](https://github.com/colearendt/pollcat/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/colearendt/pollcat/branch/main/graph/badge.svg)](https://codecov.io/gh/colearendt/pollcat)
-[![Go Report Card](https://goreportcard.com/badge/github.com/colearendt/pollcat)](https://goreportcard.com/report/github.com/colearendt/pollcat)
 [![Go Reference](https://pkg.go.dev/badge/github.com/colearendt/pollcat.svg)](https://pkg.go.dev/github.com/colearendt/pollcat)
 
 A lightweight CLI for polling network connectivity (TCP, UDP, ICMP) and DNS resolution. Features a real-time TUI with a live system clock, concurrent pollers, and exportable reports — perfect for observing how network behavior changes as you modify VPN, firewall, or Cloudflare Zero Trust configurations.
