@@ -1,0 +1,15 @@
+# Binaries
+bin/
+cli-conn
+*.exe
+
+# Test artifacts
+*.out
+coverage.out
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
