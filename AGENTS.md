@@ -31,6 +31,14 @@
 - Context-first: All long-running operations accept a `context.Context`.
 - Errors: Wrap with `fmt.Errorf("...: %w", err)` where appropriate.
 
+## Go Version Consistency
+
+The Go version declared in `go.mod` must be aligned with the Go toolchain used in CI and the `golangci-lint` version:
+
+- **Single source of truth**: `go.mod` sets the canonical Go version.
+- **CI alignment**: GitHub Actions (or any CI) must install a Go toolchain >= the `go.mod` version.
+- **Linter compatibility**: The `golangci-lint` version used in CI must be built with a Go version >= the `go.mod` version. When upgrading Go, update `golangci-lint` to a compatible release simultaneously.
+
 ## Dependencies
 
 - `github.com/spf13/cobra` — CLI framework.
