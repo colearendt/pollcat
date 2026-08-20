@@ -8,9 +8,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/charmbracelet/bubbletea"
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/mattn/go-isatty"
 	"github.com/spf13/cobra"
+
 	"github.com/colearendt/pollcat/internal/model"
 	"github.com/colearendt/pollcat/internal/poller"
 	"github.com/colearendt/pollcat/internal/store"
@@ -173,11 +174,14 @@ var pollCmd = &cobra.Command{
 			if err != nil {
 				return fmt.Errorf("create output file: %w", err)
 			}
-			defer f.Close()
 			enc := json.NewEncoder(f)
 			enc.SetIndent("", "  ")
 			if err := enc.Encode(st.Results()); err != nil {
+				_ = f.Close()
 				return fmt.Errorf("encode results: %w", err)
+			}
+			if err := f.Close(); err != nil {
+				return fmt.Errorf("close output file: %w", err)
 			}
 		}
 

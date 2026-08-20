@@ -9,6 +9,7 @@ import (
 
 	"golang.org/x/net/icmp"
 	"golang.org/x/net/ipv4"
+
 	"github.com/colearendt/pollcat/internal/model"
 )
 
@@ -54,7 +55,7 @@ func (p *TCPPoller) Poll(ctx context.Context, target model.Target) model.Result 
 		res.Error = err.Error()
 		return res
 	}
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 
 	res.Success = true
 	res.Response = "connected"
@@ -83,7 +84,7 @@ func (p *UDPPoller) Poll(ctx context.Context, target model.Target) model.Result 
 		res.Error = err.Error()
 		return res
 	}
-	defer conn.Close()
+	defer func() { _ = conn.Close() }()
 
 	res.Success = true
 	res.Response = "socket ready"
@@ -169,7 +170,7 @@ func (p *DefaultPinger) Ping(ctx context.Context, address string) (time.Duration
 	if err != nil {
 		return 0, "", fmt.Errorf("icmp listen: %w (may require root/admin privileges)", err)
 	}
-	defer c.Close()
+	defer func() { _ = c.Close() }()
 
 	msg := &icmp.Message{
 		Type: ipv4.ICMPTypeEcho,
@@ -198,7 +199,9 @@ func (p *DefaultPinger) Ping(ctx context.Context, address string) (time.Duration
 			deadline = time.Now().Add(5 * time.Second)
 		}
 	}
-	c.SetReadDeadline(deadline)
+	if err := c.SetReadDeadline(deadline); err != nil {
+		return 0, "", fmt.Errorf("set read deadline: %w", err)
+	}
 
 	n, peer, err := c.ReadFrom(reply)
 	if err != nil {

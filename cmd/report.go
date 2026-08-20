@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
 	"github.com/colearendt/pollcat/internal/model"
 	"github.com/colearendt/pollcat/internal/report"
 )
@@ -32,11 +33,13 @@ var reportCmd = &cobra.Command{
 		if err != nil {
 			return fmt.Errorf("open file: %w", err)
 		}
-		defer f.Close()
-
 		var results []model.Result
 		if err := json.NewDecoder(f).Decode(&results); err != nil {
+			_ = f.Close()
 			return fmt.Errorf("decode JSON: %w", err)
+		}
+		if err := f.Close(); err != nil {
+			return fmt.Errorf("close file: %w", err)
 		}
 
 		results = report.FilterByTarget(results, reportTargets)

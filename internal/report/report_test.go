@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/colearendt/pollcat/internal/model"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/colearendt/pollcat/internal/model"
 )
 
 func sampleResults() []model.Result {

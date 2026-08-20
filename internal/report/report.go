@@ -47,8 +47,12 @@ func (g *Generator) WriteReport(w io.Writer, results []model.Result, format Form
 }
 
 func (g *Generator) writeTable(w io.Writer, results []model.Result) error {
-	fmt.Fprintf(w, "%-24s %-6s %-30s %-8s %-12s %s\n", "TIME", "TYPE", "TARGET", "SUCCESS", "LATENCY", "RESPONSE/ERROR")
-	fmt.Fprintln(w, strings.Repeat("-", 100))
+	if _, err := fmt.Fprintf(w, "%-24s %-6s %-30s %-8s %-12s %s\n", "TIME", "TYPE", "TARGET", "SUCCESS", "LATENCY", "RESPONSE/ERROR"); err != nil {
+		return err
+	}
+	if _, err := fmt.Fprintln(w, strings.Repeat("-", 100)); err != nil {
+		return err
+	}
 	for _, r := range results {
 		success := "OK"
 		if !r.Success {
@@ -58,8 +62,10 @@ func (g *Generator) writeTable(w io.Writer, results []model.Result) error {
 		if resp == "" {
 			resp = r.Error
 		}
-		fmt.Fprintf(w, "%-24s %-6s %-30s %-8s %-12s %s\n",
-			r.Timestamp.Format(time.RFC3339), r.Type, r.Target, success, r.Latency, resp)
+		if _, err := fmt.Fprintf(w, "%-24s %-6s %-30s %-8s %-12s %s\n",
+			r.Timestamp.Format(time.RFC3339), r.Type, r.Target, success, r.Latency, resp); err != nil {
+			return err
+		}
 	}
 	return nil
 }
@@ -149,21 +155,27 @@ func (g *Generator) writeSummary(w io.Writer, results []model.Result) error {
 	}
 	sort.Strings(keys)
 
-	fmt.Fprintf(w, "%-6s %-30s %6s %6s %6s %12s %12s %12s %s\n",
-		"TYPE", "TARGET", "TOTAL", "OK", "FAIL", "MIN", "MAX", "AVG", "LAST")
-	fmt.Fprintln(w, strings.Repeat("-", 110))
+	if _, err := fmt.Fprintf(w, "%-6s %-30s %6s %6s %6s %12s %12s %12s %s\n",
+		"TYPE", "TARGET", "TOTAL", "OK", "FAIL", "MIN", "MAX", "AVG", "LAST"); err != nil {
+		return err
+	}
+	if _, err := fmt.Fprintln(w, strings.Repeat("-", 110)); err != nil {
+		return err
+	}
 	for _, k := range keys {
 		s := sums[k]
 		last := s.LastResp
 		if last == "" {
 			last = s.LastErr
 		}
-		fmt.Fprintf(w, "%-6s %-30s %6d %6d %6d %12s %12s %12s %s\n",
+		if _, err := fmt.Fprintf(w, "%-6s %-30s %6d %6d %6d %12s %12s %12s %s\n",
 			s.Type, s.Target, s.Total, s.Successes, s.Failures,
 			s.MinLatency.Round(time.Microsecond),
 			s.MaxLatency.Round(time.Microsecond),
 			s.AvgLatency.Round(time.Microsecond),
-			last)
+			last); err != nil {
+			return err
+		}
 	}
 	return nil
 }

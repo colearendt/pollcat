@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/colearendt/pollcat/internal/model"
+	"github.com/stretchr/testify/assert"
 )
 
 type fakeDialer struct {
@@ -23,13 +23,13 @@ func (f *fakeDialer) DialContext(_ context.Context, _, _ string) (net.Conn, erro
 type fakeConn struct{}
 
 func (fakeConn) Read(_ []byte) (n int, err error)   { return 0, nil }
-func (fakeConn) Write(_ []byte) (n int, err error)   { return 0, nil }
-func (fakeConn) Close() error                        { return nil }
-func (fakeConn) LocalAddr() net.Addr                 { return nil }
-func (fakeConn) RemoteAddr() net.Addr                { return nil }
-func (fakeConn) SetDeadline(_ time.Time) error       { return nil }
-func (fakeConn) SetReadDeadline(_ time.Time) error   { return nil }
-func (fakeConn) SetWriteDeadline(_ time.Time) error  { return nil }
+func (fakeConn) Write(_ []byte) (n int, err error)  { return 0, nil }
+func (fakeConn) Close() error                       { return nil }
+func (fakeConn) LocalAddr() net.Addr                { return nil }
+func (fakeConn) RemoteAddr() net.Addr               { return nil }
+func (fakeConn) SetDeadline(_ time.Time) error      { return nil }
+func (fakeConn) SetReadDeadline(_ time.Time) error  { return nil }
+func (fakeConn) SetWriteDeadline(_ time.Time) error { return nil }
 
 type fakeResolver struct {
 	ips []string
