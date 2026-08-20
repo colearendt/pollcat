@@ -7,8 +7,11 @@ linters:
   default: none
   enable:
     - errcheck
-    - goimports
     - govet
     - staticcheck
     - ineffassign
     - misspell
+
+formatters:
+  enable:
+    - goimports
