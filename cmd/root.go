@@ -15,6 +15,11 @@ and displays a real-time TUI with a system clock. After polling, you can
 generate CLI-friendly reports or CSV exports.`,
 }
 
+// SetVersion injects build-time version info into the root command.
+func SetVersion(version, commit, date string) {
+	rootCmd.Version = fmt.Sprintf("%s (commit: %s, built: %s)", version, commit, date)
+}
+
 // Execute runs the root command.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {

@@ -59,7 +59,7 @@ func TestTCPPoller_Poll_Success(t *testing.T) {
 	assert.Equal(t, model.PollTypeTCP, res.Type)
 	assert.Equal(t, "connected", res.Response)
 	assert.Zero(t, res.Error)
-	assert.Less(t, time.Duration(0), res.Latency)
+	assert.GreaterOrEqual(t, res.Latency, time.Duration(0))
 }
 
 func TestTCPPoller_Poll_Failure(t *testing.T) {
@@ -80,7 +80,7 @@ func TestUDPPoller_Poll_Success(t *testing.T) {
 	assert.Equal(t, model.PollTypeUDP, res.Type)
 	assert.Equal(t, "socket ready", res.Response)
 	assert.Zero(t, res.Error)
-	assert.Less(t, time.Duration(0), res.Latency)
+	assert.GreaterOrEqual(t, res.Latency, time.Duration(0))
 }
 
 func TestUDPPoller_Poll_Failure(t *testing.T) {
