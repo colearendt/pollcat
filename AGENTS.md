@@ -38,6 +38,7 @@ The Go version declared in `go.mod` must be aligned with the Go toolchain used i
 - **Single source of truth**: `go.mod` sets the canonical Go version.
 - **CI alignment**: GitHub Actions (or any CI) must install a Go toolchain >= the `go.mod` version.
 - **Linter compatibility**: The `golangci-lint` version used in CI must be built with a Go version >= the `go.mod` version. When upgrading Go, update `golangci-lint` to a compatible release simultaneously.
+- **Vulnerability fixes**: When `govulncheck` reports a stdlib vulnerability fixed in a specific patch release (e.g. `net@go1.25.10`), bump the `go` directive in `go.mod` to that patch version and ensure CI installs it.
 
 ## Dependencies
 
